@@ -23,29 +23,38 @@ move probabilities for Tortoises and Hares
 
 
 
-# Race State Diagram
+# Race Activity Diagram
 
+This is the flow of control to run a race
 
+1.  Create the Race object
+   1. add racers 
+   2. start the race
+      1. has anyone won yet
+         1. yes: announce the winner and exit the loop
+         2. no: keep going
+      2. move all the racers (one turn)
+      3. draw the current state of the race
+      4. repeat
 
+---
 
+### activity diagram: 
 
 ```mermaid
-stateDiagram
-state if_state <<choice>>
-state merge <<choice>>
-[*] --> initialize
-initialize --> add_racers
-add_racers --> start_the_race
-start_the_race --> merge
-merge --> if_state
-if_state --> Announce_Winner: winner
-if_state --> move_racers: no winner
-move_racers --> draw_tracks
-draw_tracks --> pause
-pause --> merge
-
-Announce_Winner --> [*]
+graph TD
+    Start([Start]) --> A[Add users Race]
+    A --> B(start race)
+    B --> C[ ]
+    
+    C --> D{has anyone won}
+    D -- Yes --> E[Announce Winner]
+    D -- No --> F[all racers take a turn moving]
+    F --> C
+    E --> End([End])
 ```
+
+
 
 ---
 
@@ -168,43 +177,4 @@ classDiagram
     Program ..> Race : creates  
 ```
 
-
-
-## State Chart 
-
-- Create the Race object
-- add racers 
-- start the race
-  - has anyone won yet
-    - yes: announce the winner and exit the loop
-    - no: keep going
-  - move all the racers (one turn)
-  - draw the current state of the race
-  - repeat
-
-
-
-
-
-```mermaid
-stateDiagram
-state if_state <<choice>>
-state merge <<choice>>
-[*] --> initialize
-initialize --> add_racers
-add_racers --> start_the_race
-start_the_race --> merge
-merge --> if_state
-if_state --> Announce_Winner: winner
-if_state --> move_racers: no winner
-move_racers --> draw_tracks
-draw_tracks --> pause
-pause --> merge
-
-Announce_Winner --> [*]
-```
-
----
-
-
-
+​	
