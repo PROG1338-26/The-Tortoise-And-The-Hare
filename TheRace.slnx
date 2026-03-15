@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="AltTortoiseAndHareLib/AltTortoiseAndHareLib.csproj" Id="3f908905-839b-4324-b439-98999c3e91d8" />
+  <Project Path="TheRace/TheRace.csproj" />
+  <Project Path="TortoiseAndHareLib/TortoiseAndHareLib.csproj" />
+</Solution>
